@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { v4 as uuidV4 } from 'uuid'
 import { NewNote } from './NewNote'
+import { NoteList } from './NoteList'
 import { useLocalStorage } from './useLocalStorage'
 
 export type RawNote = {
@@ -60,7 +61,10 @@ function App() {
   return (
     <Container className="my-4">
       <Routes>
-        <Route path="/" element={<h1>Note Taking App</h1>} />
+        <Route
+          path="/"
+          element={<NoteList availableTags={tags} notes={notesWithTags} />}
+        />
         <Route
           path="/new"
           element={
